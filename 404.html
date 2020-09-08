@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Simon Sickle</title>
+
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.css">
+<script src="https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+
+    <body class="mdc-typography">
+        <header class="mdc-top-app-bar" id="top-bar" style="top: 0px">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="menu-button mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button>
+            <span class="mdc-top-app-bar__title"><a href="">Simon Sickle</a></span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+            
+         </section>
+    </div>
+</header>
+        
+<aside class="mdc-drawer mdc-drawer--modal">
+    <div class="mdc-drawer__header">
+        <h3 class="mdc-drawer__title">Simon Sickle</h3>
+        <h6 class="mdc-drawer__subtitle">Navigation</h6>
+    </div>
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            
+                
+                    <a class="mdc-list-item"
+                    href="/">
+                        
+                            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                        
+                        Home
+                    </a>
+                
+                
+            
+                
+                    <a class="mdc-list-item"
+                    href="/blog.html">
+                        
+                        Blog
+                    </a>
+                
+                
+            
+                
+                    <a class="mdc-list-item"
+                    href="https://github.com/simonsickle">
+                        
+                        GitHub
+                    </a>
+                
+                
+            
+                
+                    <a class="mdc-list-item"
+                    href="https://twitter.com/sickletech">
+                        
+                        Twitter
+                    </a>
+                
+                
+            
+        </nav>
+    </div>
+</aside>
+<div class="mdc-drawer-scrim"></div>
+
+        <main class="mdl-layout__content">
+    <div class="mdc-layout-grid" id="main-class">
+        <div class="mdc-layout-grid__inner">
+            
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" id="main-card">
+                
+                    <div class="mdc-card page-card">
+                        <section class="mdc-card__supporting-text">
+                            <!DOCTYPE html>
+<html lang="en">
+    <title>Simon Sickle</title>
+
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.css">
+<script src="https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+
+<link rel="stylesheet" href="/assets/css/style.css?v=">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <body>
+        <h3>Couldn't find what you are looking for...</h3>
+        <a href="/blog.html">How about some reading material?</a>
+    </body>
+</html>
+                        </section>
+                    </div>
+                
+            </div>
+
+			
+        </ul>
+    </div>
+</main>
+        <script>
+    const drawerEl = document.querySelector('.mdc-drawer');
+    const drawer = new mdc.drawer.MDCDrawer.attachTo(drawerEl);
+    document.querySelector('.menu-button').addEventListener('click', function() {
+        drawer.open = !drawer.open;
+    });
+
+    element = document.querySelectorAll('.mdc-ripple-surface');
+    for (x=0; x<element.length; x++) {
+        mdc.ripple.MDCRipple.attachTo(element[x]);
+    }
+
+    var lastScroll = 0;
+    var topBarHeight = 64;
+
+    window.addEventListener("scroll", function (event) {
+        var currTop = parseInt(document.getElementById("top-bar").style.top);
+        var scrolled = currTop - (this.scrollY - lastScroll);
+
+        if (scrolled < -topBarHeight) {
+            scrolled = -topBarHeight;
+        } else if (scrolled > 0) {
+            scrolled = 0;
+        }
+        document.getElementById("top-bar").style.top = scrolled + "px";
+        lastScroll = this.scrollY;
+
+        if (window.innerWidth >= 840) {
+            cardtop = parseInt(document.getElementById("inner-card").style.top);
+            document.getElementById("inner-card").style.top = (this.scrollY + scrolled) + "px";
+        } else {
+            document.getElementById("inner-card").style.top = "0px";
+        }
+    });
+</script>
+    </body>
+</html>
