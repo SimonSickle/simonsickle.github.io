@@ -1,0 +1,35 @@
+<script>
+    const drawerEl = document.querySelector('.mdc-drawer');
+    const drawer = new mdc.drawer.MDCDrawer.attachTo(drawerEl);
+    document.querySelector('.menu-button').addEventListener('click', function() {
+        drawer.open = !drawer.open;
+    });
+
+    element = document.querySelectorAll('.mdc-ripple-surface');
+    for (x=0; x<element.length; x++) {
+        mdc.ripple.MDCRipple.attachTo(element[x]);
+    }
+
+    var lastScroll = 0;
+    var topBarHeight = 64;
+
+    window.addEventListener("scroll", function (event) {
+        var currTop = parseInt(document.getElementById("top-bar").style.top);
+        var scrolled = currTop - (this.scrollY - lastScroll);
+
+        if (scrolled < -topBarHeight) {
+            scrolled = -topBarHeight;
+        } else if (scrolled > 0) {
+            scrolled = 0;
+        }
+        document.getElementById("top-bar").style.top = scrolled + "px";
+        lastScroll = this.scrollY;
+
+        if (window.innerWidth >= 840) {
+            cardtop = parseInt(document.getElementById("inner-card").style.top);
+            document.getElementById("inner-card").style.top = (this.scrollY + scrolled) + "px";
+        } else {
+            document.getElementById("inner-card").style.top = "0px";
+        }
+    });
+</script>

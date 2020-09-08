@@ -1,0 +1,13 @@
+---
+layout: default
+---
+    <body>
+        <h3 class="mdc-typography mdc-typography--headline3">Blog Posts</h3>
+          <ul class="mdc-list">
+              {% for post in site.posts %}
+              <li class="mdc-list-item" onclick="location.href='{{ post.url }}'">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">{{post.date | date_to_string}} - {{ post.title }}</span>
+              </li>
+              {% endfor %}
+    </body>
